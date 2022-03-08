@@ -9,7 +9,10 @@ const TagsList = ({recipes = []}) => {
       <h4>Tags</h4>
       {recipes.map((recipe, index) => {
         return (
-          <li key={index}>{recipe.content.tags[0]}</li>
+          recipe.content.tags.forEach(tag => {
+            console.log('tag', tag);
+            <p>{tag}</p>
+          })
         )
       })}
     </div>

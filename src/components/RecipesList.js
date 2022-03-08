@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const RecipesList = ({ recipes = [] }) => {
@@ -8,10 +9,11 @@ const RecipesList = ({ recipes = [] }) => {
       {recipes.map((recipe,index)=>{
         const pathToImage = getImage(recipe.image.gatsbyImageData);
         return (
-          <article key={index} className={'item'}>
-            <GatsbyImage image={pathToImage}  alt={'fuck'} className={"gallery-img"}/>
-            {recipe.title}
-          </article>
+          <Link key={index} to={`/${recipe.title}`} className={'recipe'}>
+            <GatsbyImage image={pathToImage}  alt={'recipe.title'} className={"gallery-img"}/>
+            <h5>{recipe.title}</h5>
+            <p>Prep: {recipe.prepTime}min | Cook: {recipe.cookTime}min</p>
+          </Link>
         )
       })}
     </div>
