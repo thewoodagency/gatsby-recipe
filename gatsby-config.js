@@ -16,6 +16,7 @@ module.exports = {
     author: '@jayjung',
     person:{name:'Jay', age:33},
     simpleData: ['item1', 'item2'],
+    keywords: 'key1, key2, key3, key4',
     complexData: [
       {name:'A', age: 32},
       {name:'B', age: 33},
@@ -47,6 +48,24 @@ module.exports = {
     },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Montserrat",
+              variants: ["400"],
+            },
+            {
+              family: "Inconsolata",
+              variants: ["400","500","600", "700"],
+            },
+          ],
+        },
+      },
+    },
   ],
 }

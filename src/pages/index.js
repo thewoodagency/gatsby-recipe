@@ -3,11 +3,13 @@ import Layout from "../components/Layout"
 import { Button } from "../examples/button"
 import styled from "styled-components"
 import { StaticImage } from "gatsby-plugin-image"
-import FetchData from "../examples/fetchData"
+import AllRecipes from "../components/AllRecipes"
+import SEO from '../components/SEO'
 
 export default function Home() {
   return (
     <Layout>
+      <SEO title={'HomePage'} description={'recipe homepage'} keywords={'homekey1, homekey2'}/>
       <Wrapper>
         <main className="page">
           <header className={"hero"}>
@@ -32,9 +34,8 @@ export default function Home() {
               You have to die, and acquire result by your wrestling.Emeritis rumor
               callide contactuss mens est.
             </p>
+            <AllRecipes />
           </article>
-          <FetchData />
-
         </main>
       </Wrapper>
     </Layout>

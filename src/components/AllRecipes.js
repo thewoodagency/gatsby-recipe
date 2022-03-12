@@ -36,7 +36,6 @@ const AllRecipes = () => {
   const recipes = useStaticQuery(query).allContentfulRecipe.nodes;
   return (
     <>
-      <h4>All Recipes</h4>
       <TagsList recipes={recipes}/>
       <RecipesList recipes={recipes}/>
     </>

@@ -1,20 +1,25 @@
 import React from 'react';
-import Layout from "../components/Layout"
-import { graphql } from "gatsby"
+import { Link } from 'gatsby';
+import setupTags from "../utils/setupTags"
 
 const TagsList = ({recipes = []}) => {
-  console.log('tags', recipes);
+  const sortedTags = setupTags(recipes);
+  const tagslist = sortedTags.map((tag, index) => {
+    const [text, value] = tag;
+    return (
+      <Link to={`/${text}`}>
+      <li key={index}>{text} ({value})</li>
+    </Link>
+    )
+  });
+
   return (
-    <div>
+    <div className={'tags-container'}>
       <h4>Tags</h4>
-      {recipes.map((recipe, index) => {
-        return (
-          recipe.content.tags.forEach(tag => {
-            console.log('tag', tag);
-            <p>{tag}</p>
-          })
-        )
-      })}
+      <div className="tags-list">
+        <ul>{tagslist}</ul>
+      </div>
+
     </div>
   )
 }
